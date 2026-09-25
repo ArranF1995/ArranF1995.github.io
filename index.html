@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arran Farrell — Data Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F5F6F4;
+    --ink: #1B2430;
+    --ink-soft: #4B5561;
+    --teal: #2F6F5E;
+    --ochre: #B5793B;
+    --line: #D8DBD6;
+    --panel: #ECEEEA;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Work Sans', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem 6rem;
+  }
+
+  /* ---- Hero ---- */
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.1rem);
+    line-height: 1.1;
+    max-width: 14ch;
+  }
+
+  .hero .role {
+    margin-top: 0.9rem;
+    font-size: 1.15rem;
+    color: var(--teal);
+  }
+
+  .hero p {
+    margin-top: 1.4rem;
+    max-width: 56ch;
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+  }
+
+  .hero .stats {
+    margin-top: 2.2rem;
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--line);
+    padding-top: 1.4rem;
+  }
+
+  .hero .stats div strong {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .hero .stats div span {
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+  }
+
+  /* ---- Section rhythm ---- */
+  section { margin-top: 4.5rem; }
+
+  section > h2 {
+    font-size: 1.6rem;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.8rem;
+  }
+
+  /* ---- About ---- */
+  #about p { color: var(--ink-soft); max-width: 60ch; }
+
+  /* ---- Skills ---- */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.6rem;
+  }
+
+  .skills-grid h3 {
+    font-size: 1rem;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .skills-grid p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  /* ---- Projects ---- */
+  .project {
+    padding: 1.8rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .project:first-of-type { padding-top: 0; }
+
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .project h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  .project .tools {
+    color: var(--teal);
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .project p {
+    margin-top: 0.6rem;
+    color: var(--ink-soft);
+    max-width: 60ch;
+  }
+
+  .project a {
+    display: inline-block;
+    margin-top: 0.7rem;
+    color: var(--ink);
+    font-size: 0.95rem;
+    text-decoration: none;
+    border-bottom: 1px solid var(--ochre);
+  }
+
+  .project a:hover { color: var(--ochre); }
+
+  /* ---- Experience ---- */
+  .job {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 1.2rem;
+    padding: 1.2rem 0;
+  }
+
+  .job .when {
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    padding-top: 0.15rem;
+  }
+
+  .job h3 { font-size: 1.1rem; font-weight: 500; }
+  .job p { margin: 0.4rem 0 0; color: var(--ink-soft); }
+
+  @media (max-width: 480px) {
+    .job { grid-template-columns: 1fr; gap: 0.3rem; }
+  }
+
+  /* ---- Contact ---- */
+  #contact p { color: var(--ink-soft); max-width: 55ch; }
+
+  #contact .links {
+    margin-top: 1.2rem;
+    display: flex;
+    gap: 1.8rem;
+    flex-wrap: wrap;
+  }
+
+  #contact a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--teal);
+    padding-bottom: 2px;
+  }
+
+  #contact a:hover { color: var(--teal); }
+
+  footer {
+    margin-top: 5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1>Arran Farrell</h1>
+    <div class="role">Data Analyst — SQL · Power BI · Python</div>
+    <p>I turn messy data into decisions people can act on. Seven years in financial services analytics, most recently building reporting and dashboards used by stakeholders across the business.</p>
+    <div class="stats">
+      <div><strong>7+ yrs</strong><span>Data analytics</span></div>
+      <div><strong>Aryza</strong><span>Financial services SaaS</span></div>
+      <div><strong>DCU</strong><span>BSc Enterprise Computing</span></div>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      Replace this with 3–4 sentences on how you work: the kinds of problems you like solving,
+      how you approach stakeholders, and what you're building toward next. Recruiters read this
+      section to get a sense of you beyond the bullet points — keep it plain and specific rather
+      than a list of adjectives.
+    </p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div>
+        <h3>Querying &amp; data</h3>
+        <p>SQL, data modelling, ETL basics</p>
+      </div>
+      <div>
+        <h3>Visualisation</h3>
+        <p>Power BI, dashboard design, stakeholder reporting</p>
+      </div>
+      <div>
+        <h3>Programming</h3>
+        <p>Python (pandas, in progress)</p>
+      </div>
+      <div>
+        <h3>Communication</h3>
+        <p>Data storytelling, exec-level reporting</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>Project title one</h3>
+        <span class="tools">SQL · Power BI</span>
+      </div>
+      <p>One or two sentences: the business question, what you did, and the outcome or insight. Say what changed because of the analysis, not just what tools you used.</p>
+      <a href="#">View project →</a>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>Project title two</h3>
+        <span class="tools">Python · pandas</span>
+      </div>
+      <p>Same structure: problem, approach, result. Link to the GitHub repo or a short write-up page for the full detail.</p>
+      <a href="#">View project →</a>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>Project title three</h3>
+        <span class="tools">SQL · Dashboard</span>
+      </div>
+      <p>A third project that shows a different angle — e.g. a dashboard build, a forecasting exercise, or a data-cleaning project.</p>
+      <a href="#">View project →</a>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="when">2017 – 2024</div>
+      <div>
+        <h3>Data Analyst — Aryza</h3>
+        <p>Financial services SaaS. Add 1–2 lines on scope and a measurable highlight (e.g. "built reporting used by X teams" or "reduced report turnaround from X to Y").</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Get in touch</h2>
+    <p>Open to Data Analyst roles in Dublin and hybrid/remote. Reach out directly or find me on LinkedIn.</p>
+    <div class="links">
+      <a href="mailto:youremail@example.com">Email</a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+      <a href="cv.pdf" target="_blank">CV (PDF)</a>
+    </div>
+  </section>
+
+  <footer>© 2026 Arran Farrell</footer>
+</div>
+</body>
+</html>
