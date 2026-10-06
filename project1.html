@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <meta name="description"
+          content="Irish Public Transport data analysis project by Arran Farrell, exploring passenger journey trends across Bus, Rail and Luas using SQL, Excel, Power Query, DAX and Power BI." />
+
+    <meta name="author" content="Arran Farrell" />
+
+    <title>Irish Public Transport Analysis | Arran Farrell</title>
+
+
+    <!-- Favicon -->
+    <link rel="icon"
+          type="image/x-icon"
+          href="assets/favicon.ico" />
+
+
+    <!-- Google Font -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin />
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet" />
+
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+          rel="stylesheet" />
+
+
+    <!-- Your existing stylesheet -->
+    <link href="css/styles.css"
+          rel="stylesheet" />
+
+
+    <!-- Project page styling -->
+    <style>
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Plus Jakarta Sans", sans-serif;
+        }
+
+
+        /* -------------------------
+           HERO
+        ------------------------- */
+
+        .project-hero {
+            padding-top: 4rem;
+            padding-bottom: 3rem;
+        }
+
+        .project-title {
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+
+        .project-description {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .project-label {
+            letter-spacing: 0.12rem;
+        }
+
+
+        /* -------------------------
+           SECTIONS
+        ------------------------- */
+
+        .project-section {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+
+        .section-heading {
+            font-size: 1.8rem;
+        }
+
+        .section-description {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        /* -------------------------
+           CARDS
+        ------------------------- */
+
+        .project-card {
+            border: 0;
+            border-radius: 1rem;
+            height: 100%;
+        }
+
+        .project-card-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+
+        /* -------------------------
+           INSIGHTS
+        ------------------------- */
+
+        .insight-number {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+
+        /* -------------------------
+           WORKFLOW
+        ------------------------- */
+
+        .workflow-step {
+            text-align: center;
+            height: 100%;
+        }
+
+        .workflow-number {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem auto;
+            font-weight: 700;
+        }
+
+
+        /* -------------------------
+           POWER BI
+        ------------------------- */
+
+        .dashboard-wrapper {
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+
+        /* -------------------------
+           TECHNICAL CHALLENGE
+        ------------------------- */
+
+        .mode-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .mode-item:last-child {
+            border-bottom: 0;
+        }
+
+
+        /* -------------------------
+           MOBILE
+        ------------------------- */
+
+        @media (max-width: 768px) {
+
+            .project-hero {
+                padding-top: 2.5rem;
+            }
+
+            .project-title {
+                font-size: 1.9rem;
+            }
+
+            .project-section {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="d-flex flex-column h-100 bg-light">
+
+<main class="flex-shrink-0">
+
+
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
+
+        <div class="container px-3 px-md-5">
+
+            <a class="navbar-brand text-wrap me-2"
+               href="index.html">
+
+                <span class="fw-bolder fs-6 fs-md-5">
+                    Arran Farrell - Senior Data Analyst
+                </span>
+
+            </a>
+
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <div class="collapse navbar-collapse"
+                 id="navbarSupportedContent">
+
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="About Me.html">
+                            About Me
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="cv.html">
+                            CV
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active"
+                           href="projects.html">
+                            Projects
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="project-hero">
+
+        <div class="container px-3 px-md-5">
+
+            <div class="text-center">
+
+                <!-- Small label -->
+
+                <p class="project-label text-uppercase
+                          text-muted small fw-bold mb-3">
+
+                    Data Analytics Case Study
+
+                </p>
+
+
+                <!-- Project title -->
+
+                <h1 class="project-title fw-bolder mb-3">
+
+                    <span class="text-gradient d-inline">
+
+                        Irish Public Transport Trends & Analysis
+
+                    </span>
+
+                </h1>
+
+
+                <!-- Description -->
+
+                <p class="project-description
+                          lead text-muted mb-4">
+
+                    An end-to-end data analytics project exploring
+                    passenger journey trends across Ireland's major
+                    Bus, Rail and Luas transport modes from
+                    2019 to 2026 YTD.
+
+                </p>
+
+
+                <!-- Skills badge -->
+
+                <div class="mb-4">
+
+                    <span class="badge
+                                 bg-gradient-primary-to-secondary
+                                 text-white
+                                 text-uppercase
+                                 px-3 py-2">
+
+                        SQL &middot;
+                        Excel &middot;
+                        Power Query &middot;
+                        DAX &middot;
+                        Power BI
+
+                    </span>
+
+                </div>
+
+
+                <!-- CTA buttons -->
+
+                <div class="d-flex
+                            justify-content-center
+                            gap-3
+                            flex-wrap">
+
+                    <a href="#dashboard"
+                       class="btn btn-primary px-4 py-2">
+
+                        <i class="bi bi-bar-chart-fill me-2"></i>
+
+                        View Dashboard
+
+                    </a>
+
+
+                    <a href="https://github.com/ArranF1995"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn-outline-dark px-4 py-2">
+
+                        <i class="bi bi-github me-2"></i>
+
+                        GitHub
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         DASHBOARD
+    ====================================================== -->
+
+    <section id="dashboard"
+             class="pb-5">
+
+        <div class="container px-3 px-md-5">
+
+
+            <div class="text-center mb-4">
+
+                <h2 class="section-heading fw-bolder mb-2">
+
+                    Interactive Power BI Dashboard
+
+                </h2>
+
+                <p class="text-muted section-description">
+
+                    Explore annual trends, transport mode performance,
+                    Luas passenger journeys and the data-quality
+                    considerations behind the analysis.
+
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-wrapper
+                        shadow-lg
+                        bg-white">
+
+                <div class="ratio ratio-16x9">
+
+                    <iframe
+                        title="Irish Public Transport Dashboard"
+                        src="https://app.powerbi.com/view?r=eyJrIjoiZDFlMzFjOTUtNDQ2Ny00ZGI4LWIwZjktY2FlMmU1YzJjZjk3IiwidCI6IjViZjI2ZTU2LTUyNDQtNDQ2Zi1iZWQ5LTU1OGM1ZDAwNTk1ZSJ9&pageName=a4b17207fbe14133b85c"
+                        style="border: none;"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+
+            </div>
+
+
+            <p class="text-muted small text-center mt-3">
+
+                Use the navigation and filters inside the dashboard
+                to explore the analysis.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PROJECT OVERVIEW
+    ====================================================== -->
+
+    <section class="project-section bg-white">
+
+        <div class="container px-3 px-md-5">
+
+
+            <div class="text-center mb-5">
+
+                <p class="text-uppercase
+                          text-muted
+                          small
+                          fw-bold
+                          mb-2">
+
+                    The Project
+
+                </p>
+
+                <h2 class="section-heading fw-bolder">
+
+                    Project Overview
+
+                </h2>
+
+            </div>
+
+
+            <div class="row g-4 justify-content-center">
+
+
+                <!-- Challenge -->
+
+                <div class="col-lg-7">
+
+                    <div class="card
+                                project-card
+                                shadow-sm">
+
+                        <div class="card-body p-4 p-md-5">
+
+                            <div class="project-card-icon
+                                        bg-primary
+                                        bg-gradient
+                                        text-white
+                                        mb-4">
+
+                                <i class="bi bi-question-circle"></i>
+
+                            </div>
+
+
+                            <h3 class="h5 fw-bold mb-3">
+
+                                The Challenge
+
+                            </h3>
+
+
+                            <p class="text-muted">
+
+                                Public transport data is available
+                                across multiple official datasets and
+                                contains both aggregate and
+                                component-level transport categories.
+
+                            </p>
+
+
+                            <p class="text-muted mb-0">
+
+                                The goal of this project was to combine
+                                these sources into a consistent
+                                analytical dataset and understand how
+                                passenger activity has changed across
+                                Bus, Rail and Luas services.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Details -->
+
+                <div class="col-lg-5">
+
+                    <div class="card
+                                project-card
+                                shadow-sm">
+
+                        <div class="card-body p-4 p-md-5">
+
+                            <div class="project-card-icon
+                                        bg-primary
+                                        bg-gradient
+                                        text-white
+                                        mb-4">
+
+                                <i class="bi bi-info-circle"></i>
+
+                            </div>
+
+
+                            <h3 class="h5 fw-bold mb-4">
+
+                                Project Details
+
+                            </h3>
+
+
+                            <p class="mb-3">
+
+                                <strong>Period</strong><br>
+
+                                <span class="text-muted">
+                                    2019–2026 YTD
+                                </span>
+
+                            </p>
+
+
+                            <p class="mb-3">
+
+                                <strong>Dataset Size</strong><br>
+
+                                <span class="text-muted">
+                                    2,831 records
+                                </span>
+
+                            </p>
+
+
+                            <p class="mb-3">
+
+                                <strong>Data Sources</strong><br>
+
+                                <span class="text-muted">
+                                    2 official datasets
+                                </span>
+
+                            </p>
+
+
+                            <p class="mb-0">
+
+                                <strong>Tools</strong><br>
+
+                                <span class="text-muted">
+                                    SQL, Excel, Power Query,
+                                    DAX & Power BI
+                                </span>
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         KEY INSIGHTS
+    ====================================================== -->
+
+    <section class="project-section">
+
+        <div class="container px-3 px-md-5">
+
+
+            <div class="text-center mb-5">
+
+                <p class="text-uppercase
+                          text-muted
+                          small
+                          fw-bold
+                          mb-2">
+
+                    Results
+
+                </p>
+
+                <h2 class="section-heading fw-bolder">
+
+                    Key Insights
+
+                </h2>
+
+                <p class="text-muted section-description">
+
+                    Three of the headline findings from the
+                    passenger journey analysis.
+
+                </p>
+
+            </div>
+
+
+            <div class="row g-4 text-center">
+
+
+                <!-- Insight 1 -->
+
+                <div class="col-md-4">
+
+                    <div class="card
+                                project-card
+                                shadow-sm">
+
+                        <div class="card-body p-4">
+
+                            <div class="insight-number
+                                        text-primary
+                                        mb-2">
+
+                                +35.8%
+
+                            </div>
+
+                            <h3 class="h6 fw-bold">
+
+                                Bus Outside Dublin
+
+                            </h3>
+
+                            <p class="text-muted small mb-0">
+
+                                Growth in passenger journeys
+                                between 2019 and 2025.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Insight 2 -->
+
+                <div class="col-md-4">
+
+                    <div class="card
+                                project-card
+                                shadow-sm">
+
+                        <div class="card-body p-4">
+
+                            <div class="insight-number
+                                        text-primary
+                                        mb-2">
+
+                                55.0M
+
+                            </div>
+
+                            <h3 class="h6 fw-bold">
+
+                                Luas Journeys
+
+                            </h3>
+
+                            <p class="text-muted small mb-0">
+
+                                Passenger journeys recorded
+                                across the Luas network in 2025.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Insight 3 -->
+
+                <div class="col-md-4">
+
+                    <div class="card
+                                project-card
+                                shadow-sm">
+
+                        <div class="card-body p-4">
+
+                            <div class="insight-number
+                                        text-primary
+                                        mb-2">
+
+                                +16.6%
+
+                            </div>
+
+                            <h3 class="h6 fw-bold">
+
+                                Dublin Metro Bus
+
+                            </h3>
+
+                            <p class="text-muted small mb-0">
+
+                                Growth in passenger journeys
+                                between 2019 and 2025.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Insight narrative -->
+
+            <div class="row justify-content-center mt-5">
+
+                <div class="col-lg-9">
+
+                    <div class="card
+                                project-card
+                                shadow-sm">
+
+                        <div class="card-body p-4 p-md-5">
+
+                            <h3 class="h5 fw-bold mb-3">
+
+                                What the Data Shows
+
+                            </h3>
+
+
+                            <p class="text-muted">
+
+                                Passenger activity declined sharply
+                                during 2020 and 2021 before recovering
+                                strongly from 2022 onwards.
+
+                            </p>
+
+
+                            <p class="text-muted">
+
+                                Among the modes with comparable
+                                2019 and 2025 data, bus services
+                                outside Dublin recorded the strongest
+                                growth, increasing by approximately
+                                35.8%.
+
+                            </p>
+
+
+                            <p class="text-muted mb-0">
+
+                                Rail is excluded from 2019-based
+                                growth comparisons because passenger
+                                journey values for Rail are unavailable
+                                for 2019.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         HOW I BUILT IT
+    ====================================================== -->
+
+    <section class="project-section bg-white">
+
+        <div class="container px-3 px-md-5">
+
+
+            <div class="text-center mb-5">
+
+                <p class="text-uppercase
+                          text-muted
+                          small
+                          fw-bold
+                          mb-2">
+
+                    Process
+
+                </p>
+
+                <h2 class="section-heading fw-bolder">
+
+                    How I Built It
+
+                </h2>
+
+                <p class="text-muted section-description">
+
+                    The project followed an end-to-end analytical
+                    workflow from raw official data through to
+                    interactive reporting.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="row g-4">
+
+
+                <!-- Step 1 -->
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="workflow-step">
+
+                        <div class="workflow-number
+                                    bg-primary
+                                    bg-gradient
+                                    text-white">
+
+                            01
+
+                        </div>
+
+                        <h3 class="h6 fw-bold">
+
+                            Data
+
+                        </h3>
+
+                        <p class="text-muted small">
+
+                            Collected weekly passenger journey data
+                            from two official Irish transport datasets.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Step 2 -->
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="workflow-step">
+
+                        <div class="workflow-number
+                                    bg-primary
+                                    bg-gradient
+                                    text-white">
+
+                            02
+
+                        </div>
+
+                        <h3 class="h6 fw-bold">
+
+                            Cleaning
+
+                        </h3>
+
+                        <p class="text-muted small">
+
+                            Standardised fields, extracted reporting
+                            year and week, flagged missing data and
+                            combined the datasets using Power Query.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Step 3 -->
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="workflow-step">
+
+                        <div class="workflow-number
+                                    bg-primary
+                                    bg-gradient
+                                    text-white">
+
+                            03
+
+                        </div>
+
+                        <h3 class="h6 fw-bold">
+
+                            Analysis
+
+                        </h3>
+
+                        <p class="text-muted small">
+
+                            Used SQL, Excel and DAX to investigate
+                            annual trends, growth, mode comparison
+                            and data quality.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Step 4 -->
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="workflow-step">
+
+                        <div class="workflow-number
+                                    bg-primary
+                                    bg-gradient
+                                    text-white">
+
+                            04
+
+                        </div>
+
+                        <h3 class="h6 fw-bold">
+
+                            Dashboard
+
+                        </h3>
+
+                        <p class="text-muted small">
+
+                            Built a multi-page Power BI report to
+                            communicate the findings through
+                            interactive visualisations.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Workflow line -->
+
+            <div class="text-center mt-5">
+
+                <span class="badge
+                             bg-light
+                             text-dark
+                             border
+                             px-3 py-2">
+
+                    Official Data
+                    &nbsp;→&nbsp;
+                    Power Query
+                    &nbsp;→&nbsp;
+                    Excel
+                    &nbsp;→&nbsp;
+                    SQL
+                    &nbsp;→&nbsp;
+                    Power BI
+                    &nbsp;→&nbsp;
+                    Insights
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         TECHNICAL CHALLENGE
+    ====================================================== -->
+
+    <section class="project-section">
+
+        <div class="container px-3 px-md-5">
+
+
+            <div class="text-center mb-5">
+
+                <p class="text-uppercase
+                          text-muted
+                          small
+                          fw-bold
+                          mb-2">
+
+                    Data Modelling
+
+                </p>
+
+                <h2 class="section-heading fw-bolder">
+
+                    Preventing Double-Counting
+
+                </h2>
+
+            </div>
+
+
+
+            <div class="row g-4 align-items-stretch">
+
+
+                <!-- Explanation -->
+
+                <div class="col-lg-6">
+
+                    <div class="card
+                                project-card
+                                shadow-sm">
+
+                        <div class="card-body p-4 p-md-5">
+
+                            <div class="project-card-icon
+                                        bg-primary
+                                        bg-gradient
+                                        text-white
+                                        mb-4">
+
+                                <i class="bi bi-diagram-3"></i>
+
+                            </div>
+
+
+                            <h3 class="h5 fw-bold mb-3">
+
+                                The Problem
+
+                            </h3>
+
+
+                            <p class="text-muted">
+
+                                The source data contains both
+                                aggregate totals and their underlying
+                                components. Simply summing every
+                                transport category would therefore
+                                substantially overstate total
+                                passenger journeys.
+
+                            </p>
+
+
+                            <p class="text-muted mb-0">
+
+                                I separated core transport modes,
+                                aggregate records and Luas line-level
+                                records before calculating totals.
+                                This prevents overlapping categories
+                                from inflating the analysis.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Mode structure -->
+
+                <div class="col-lg-6">
+
+                    <div class="card
+                                project-card
+                                shadow-sm">
+
+                        <div class="card-body p-4 p-md-5">
+
+                            <h3 class="h5 fw-bold mb-4">
+
+                                Transport Structure
+
+                            </h3>
+
+
+                            <div class="mode-item
+                                        d-flex
+                                        justify-content-between">
+
+                                <span>
+                                    Dublin Metro Bus
+                                </span>
+
+                                <span class="badge bg-success">
+                                    Core
+                                </span>
+
+                            </div>
+
+
+                            <div class="mode-item
+                                        d-flex
+                                        justify-content-between">
+
+                                <span>
+                                    Bus, excluding Dublin Metro
+                                </span>
+
+                                <span class="badge bg-success">
+                                    Core
+                                </span>
+
+                            </div>
+
+
+                            <div class="mode-item
+                                        d-flex
+                                        justify-content-between">
+
+                                <span>
+                                    Rail
+                                </span>
+
+                                <span class="badge bg-success">
+                                    Core
+                                </span>
+
+                            </div>
+
+
+                            <div class="mode-item
+                                        d-flex
+                                        justify-content-between">
+
+                                <span>
+                                    Luas
+                                </span>
+
+                                <span class="badge bg-success">
+                                    Core
+                                </span>
+
+                            </div>
+
+
+                            <div class="mode-item
+                                        d-flex
+                                        justify-content-between">
+
+                                <span>
+                                    All Public Transport,
+                                    excluding Luas
+                                </span>
+
+                                <span class="badge bg-secondary">
+                                    Aggregate
+                                </span>
+
+                            </div>
+
+
+                            <div class="mode-item
+                                        d-flex
+                                        justify-content-between">
+
+                                <span>
+                                    Red Line
+                                </span>
+
+                                <span class="badge bg-secondary">
+                                    Luas Component
+                                </span>
+
+                            </div>
+
+
+                            <div class="mode-item
+                                        d-flex
+                                        justify-content-between">
+
+                                <span>
+                                    Green Line
+                                </span>
+
+                                <span class="badge bg-secondary">
+                                    Luas Component
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         DATA QUALITY & LIMITATIONS
+    ====================================================== -->
+
+    <section class="project-section bg-white">
+
+        <div class="container px-3 px-md-5">
+
+
+            <div class="text-center mb-5">
+
+                <p class="text-uppercase
+                          text-muted
+                          small
+                          fw-bold
+                          mb-2">
+
+                    Methodology
+
+                </p>
+
+                <h2 class="section-heading fw-bolder">
+
+                    Data Quality & Limitations
+
+                </h2>
+
+                <p class="text-muted section-description">
+
+                    Several data-quality considerations were taken
+                    into account when interpreting the results.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="row g-4">
+
+
+                <!-- Rail -->
+
+                <div class="col-md-6">
+
+                    <div class="card
+                                project-card
+                                shadow-sm">
+
+                        <div class="card-body p-4">
+
+                            <h3 class="h6 fw-bold">
+
+                                <i class="bi bi-exclamation-circle
+                                           text-primary me-2"></i>
+
+                                Rail 2019
+
+                            </h3>
+
+                            <p class="text-muted small mb-0">
+
+                                Passenger journey values for Rail are
+                                unavailable for 2019, so Rail is
+                                excluded from comparisons requiring
+                                a 2019 baseline.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 2026 -->
+
+                <div class="col-md-6">
+
+                    <div class="card
+                                project-card
+                                shadow-sm">
+
+                        <div class="card-body p-4">
+
+                            <h3 class="h6 fw-bold">
+
+                                <i class="bi bi-calendar3
+                                           text-primary me-2"></i>
+
+                                2026 Partial Year
+
+                            </h3>
+
+                            <p class="text-muted small mb-0">
+
+                                2026 is incomplete. THA25 currently
+                                extends to Week 35 while TII03 extends
+                                to Week 38, so annual totals are not
+                                directly compared with complete years.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Missing -->
+
+                <div class="col-md-6">
+
+                    <div class="card
+                                project-card
+                                shadow-sm">
+
+                        <div class="card-body p-4">
+
+                            <h3 class="h6 fw-bold">
+
+                                <i class="bi bi-dash-circle
+                                           text-primary me-2"></i>
+
+                                Missing Values
+
+                            </h3>
+
+                            <p class="text-muted small mb-0">
+
+                                Blank passenger journey values were
+                                retained as missing rather than
+                                automatically being treated as zero.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Journeys -->
+
+                <div class="col-md-6">
+
+                    <div class="card
+                                project-card
+                                shadow-sm">
+
+                        <div class="card-body p-4">
+
+                            <h3 class="h6 fw-bold">
+
+                                <i class="bi bi-people
+                                           text-primary me-2"></i>
+
+                                Passenger Journeys
+
+                            </h3>
+
+                            <p class="text-muted small mb-0">
+
+                                Passenger journeys represent trips
+                                recorded in the dataset rather than
+                                the number of unique passengers.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SKILLS USED
+    ====================================================== -->
+
+    <section class="project-section">
+
+        <div class="container px-3 px-md-5">
+
+
+            <div class="text-center mb-5">
+
+                <p class="text-uppercase
+                          text-muted
+                          small
+                          fw-bold
+                          mb-2">
+
+                    Technical Skills
+
+                </p>
+
+                <h2 class="section-heading fw-bolder">
+
+                    Tools & Techniques
+
+                </h2>
+
+            </div>
+
+
+            <div class="d-flex
+                        justify-content-center
+                        gap-2
+                        flex-wrap">
+
+                <span class="badge bg-white
+                             text-dark
+                             border
+                             px-3 py-2">
+                    SQL
+                </span>
+
+                <span class="badge bg-white
+                             text-dark
+                             border
+                             px-3 py-2">
+                    Excel
+                </span>
+
+                <span class="badge bg-white
+                             text-dark
+                             border
+                             px-3 py-2">
+                    Power Query
+                </span>
+
+                <span class="badge bg-white
+                             text-dark
+                             border
+                             px-3 py-2">
+                    DAX
+                </span>
+
+                <span class="badge bg-white
+                             text-dark
+                             border
+                             px-3 py-2">
+                    Power BI
+                </span>
+
+                <span class="badge bg-white
+                             text-dark
+                             border
+                             px-3 py-2">
+                    Data Cleaning
+                </span>
+
+                <span class="badge bg-white
+                             text-dark
+                             border
+                             px-3 py-2">
+                    Data Modelling
+                </span>
+
+                <span class="badge bg-white
+                             text-dark
+                             border
+                             px-3 py-2">
+                    Data Visualisation
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         GITHUB CTA
+    ====================================================== -->
+
+    <section class="py-5
+                    bg-gradient-primary-to-secondary
+                    text-white">
+
+        <div class="container
+                    px-3 px-md-5
+                    my-3 my-md-4">
+
+            <div class="text-center">
+
+                <h2 class="h2 fw-bolder mb-3">
+
+                    Explore the Technical Work
+
+                </h2>
+
+
+                <p class="mb-4 mx-auto"
+                   style="max-width: 650px;">
+
+                    View the project files, SQL analysis,
+                    methodology and supporting documentation
+                    in the GitHub repository.
+
+                </p>
+
+
+                <div class="d-flex
+                            justify-content-center
+                            gap-3
+                            flex-wrap">
+
+                    <a class="btn
+                              btn-outline-light
+                              px-4 py-2
+                              fw-bolder"
+                       href="https://github.com/ArranF1995"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        <i class="bi bi-github me-2"></i>
+
+                        View GitHub
+
+                    </a>
+
+
+                    <a class="btn
+                              btn-light
+                              px-4 py-2
+                              fw-bolder"
+                       href="projects.html">
+
+                        <i class="bi bi-arrow-left me-2"></i>
+
+                        Back to Projects
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer class="bg-white py-4 mt-auto">
+
+    <div class="container px-3 px-md-5">
+
+        <div class="row
+                    align-items-center
+                    justify-content-between
+                    flex-column flex-sm-row">
+
+            <div class="col-auto">
+
+                <div class="small m-0 text-muted">
+
+                    &copy; Arran Farrell
+
+                </div>
+
+            </div>
+
+
+            <div class="col-auto">
+
+                <a class="small text-decoration-none me-3"
+                   href="projects.html">
+
+                    Projects
+
+                </a>
+
+                <a class="small text-decoration-none"
+                   href="contact.html">
+
+                    Contact
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- Bootstrap core JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- Your existing scripts -->
+<script src="js/scripts.js"></script>
+
+
+</body>
+
+</html>
