@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <meta name="description"
+          content="An end-to-end data analytics project exploring 30 years of Premier League match data across seasons from 1992 – 2026 using SQL, Excel, Power Query, DAX and Power BI." />
+
+    <meta name="author" content="Arran Farrell" />
+
+    <title>Premier League Match Data Analysis | Arran Farrell</title>
+
+
+    <!-- Favicon -->
+    <link rel="icon"
+          type="image/x-icon"
+          href="assets/favicon.ico" />
+
+
+    <!-- Google Font -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin />
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet" />
+
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+          rel="stylesheet" />
+
+
+    <!-- Your existing stylesheet -->
+    <link href="css/styles.css"
+          rel="stylesheet" />
+
+
+    <!-- Project page styling -->
+    <style>
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Plus Jakarta Sans", sans-serif;
+        }
+
+
+        /* -------------------------
+           HERO
+        ------------------------- */
+
+        .project-hero {
+            padding-top: 4rem;
+            padding-bottom: 3rem;
+        }
+
+        .project-title {
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+
+        .project-description {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .project-label {
+            letter-spacing: 0.12rem;
+        }
+
+
+        /* -------------------------
+           SECTIONS
+        ------------------------- */
+
+        .project-section {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+
+        .section-heading {
+            font-size: 1.8rem;
+        }
+
+        .section-description {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        /* -------------------------
+           CARDS
+        ------------------------- */
+
+        .project-card {
+            border: 0;
+            border-radius: 1rem;
+            height: 100%;
+        }
+
+        .project-card-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+
+        /* -------------------------
+           INSIGHTS
+        ------------------------- */
+
+        .insight-number {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+
+        /* -------------------------
+           WORKFLOW
+        ------------------------- */
+
+        .workflow-step {
+            text-align: center;
+            height: 100%;
+        }
+
+        .workflow-number {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem auto;
+            font-weight: 700;
+        }
+
+
+        /* -------------------------
+           POWER BI
+        ------------------------- */
+
+        .dashboard-wrapper {
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+
+        /* -------------------------
+           TECHNICAL CHALLENGE
+        ------------------------- */
+
+        .mode-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .mode-item:last-child {
+            border-bottom: 0;
+        }
+
+
+        /* -------------------------
+           MOBILE
+        ------------------------- */
+
+        @media (max-width: 768px) {
+
+            .project-hero {
+                padding-top: 2.5rem;
+            }
+
+            .project-title {
+                font-size: 1.9rem;
+            }
+
+            .project-section {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+
+        }
+        
+/* Technical Challenge Section */
+
+.technical-challenge {
+    padding: 70px 0;
+    background: #f8f9fc;
+}
+
+.technical-challenge .challenge-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.technical-challenge .challenge-card {
+    background: #ffffff;
+    border: 1px solid #e9e5f0;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 8px 24px rgba(40, 20, 60, 0.06);
+}
+
+.technical-challenge .challenge-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.technical-challenge .challenge-icon.problem {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.technical-challenge .challenge-icon.solution {
+    background: #ecfdf5;
+    color: #059669;
+}
+
+.technical-challenge .challenge-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #1f2937;
+}
+
+.technical-challenge .challenge-card p {
+    color: #64748b;
+    line-height: 1.75;
+    margin-bottom: 0;
+}
+
+.technical-challenge .challenge-note {
+    text-align: center;
+    margin-top: 24px;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .technical-challenge .challenge-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+:root{--purple:#3b1b56;--green:#10b981;--ink:#1f2937;--muted:#64748b;--line:#e7e5eb}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f8f9fc;color:var(--ink)}
+.walkthrough{max-width:1160px;margin:auto;padding:72px 22px}.eyebrow{color:#059669;text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:800}.walkthrough h2{font-size:clamp(30px,4vw,42px);margin:10px 0}.intro{max-width:730px;color:var(--muted);line-height:1.7;margin-bottom:38px}.walkthrough-card{display:grid;grid-template-columns:1.15fr 1fr;gap:38px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;margin:0 0 26px;box-shadow:0 10px 28px rgba(34,16,49,.045)}.walkthrough-card:nth-of-type(even) .walkthrough-image{order:2}.walkthrough-image{display:block;border-radius:12px;overflow:hidden;background:var(--purple);aspect-ratio:16/9;border:1px solid #e6ddec}.walkthrough-image img{width:100%;height:100%;object-fit:contain;display:block}.walkthrough-image .placeholder{height:100%;display:flex;align-items:center;justify-content:center;color:#e5d4ef;text-align:center;padding:20px;font-size:14px}.number{font-weight:800;font-size:13px;color:#059669;letter-spacing:.12em}.walkthrough-copy h3{font-size:26px;margin:12px 0}.walkthrough-copy p{color:var(--muted);line-height:1.75;margin:0 0 16px}.feature-label{font-weight:700;color:#3b1b56;font-size:13px}.walkthrough-copy ul{padding-left:20px;margin:8px 0 0;color:#475569;line-height:1.7}.walkthrough-copy li{margin-bottom:4px}@media(max-width:760px){.walkthrough{padding:48px 16px}.walkthrough-card{grid-template-columns:1fr;gap:22px;padding:16px}.walkthrough-card:nth-of-type(even) .walkthrough-image{order:0}.walkthrough-copy h3{font-size:22px}}
+
+
+    </style>
+
+</head>
+
+
+<body class="d-flex flex-column h-100 bg-light">
+
+<main class="flex-shrink-0">
+
+
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
+
+        <div class="container px-3 px-md-5">
+
+            <a class="navbar-brand text-wrap me-2"
+               href="index.html">
+
+                <span class="fw-bolder fs-6 fs-md-5">
+                    Arran Farrell - Senior Data Analyst
+                </span>
+
+            </a>
+
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <div class="collapse navbar-collapse"
+                 id="navbarSupportedContent">
+
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="About Me.html">
+                            About Me
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="cv.html">
+                            CV
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active"
+                           href="projects.html">
+                            Projects
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="project-hero">
+
+        <div class="container px-3 px-md-5">
+
+            <div class="text-center">
+
+                <!-- Small label -->
+
+                <p class="project-label text-uppercase
+                          text-muted small fw-bold mb-3">
+
+                    Data Analytics Case Study
+
+                </p>
+
+
+                <!-- Project title -->
+
+                <h1 class="project-title fw-bolder mb-3">
+
+                    <span class="text-gradient d-inline">
+
+                        Premier League Match Data Analysis
+
+                    </span>
+
+                </h1>
+
+
+                <!-- Description -->
+
+                <p class="project-description
+                          lead text-muted mb-4">
+
+                   An end-to-end data analytics project exploring 30 years of Premier League match data across seasons from 1992 – 2026 .
+
+                </p>
+
+
+                <!-- Skills badge -->
+
+                <div class="mb-4">
+
+                    <span class="badge
+                                 bg-gradient-primary-to-secondary
+                                 text-white
+                                 text-uppercase
+                                 px-3 py-2">
+
+                        SQL &middot;
+                        Excel &middot;
+                        Power Query &middot;
+                        DAX &middot;
+                        Power BI
+
+                    </span>
+
+                </div>
+
+
+                <!-- CTA buttons -->
+
+                <div class="d-flex
+                            justify-content-center
+                            gap-3
+                            flex-wrap">
+
+                    <a href="#dashboard"
+                       class="btn btn-primary px-4 py-2">
+
+                        <i class="bi bi-bar-chart-fill me-2"></i>
+
+                        View Dashboard
+
+                    </a>
+
+
+                    <a href="https://github.com/ArranF1995/Irish-transport-and-Commuting"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn-outline-dark px-4 py-2">
+
+                        <i class="bi bi-github me-2"></i>
+
+                        GitHub
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         DASHBOARD
+    ====================================================== -->
+
+    <section id="dashboard"
+             class="pb-5">
+
+        <div class="container px-3 px-md-5">
+
+
+            <div class="text-center mb-4">
+
+                <h2 class="section-heading fw-bolder mb-2">
+
+                    Interactive Power BI Dashboard
+
+                </h2>
+
+                <p class="text-muted section-description">
+
+                    Explore match data on multiple levels from season level , match level to era level looking on at an overall league outlook and individual team basis.
+
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-wrapper
+                        shadow-lg
+                        bg-white">
+
+                <div class="ratio ratio-16x9">
+
+                    <iframe
+                        title="Irish Public Transport Dashboard"
+                        src="https://app.powerbi.com/view?r=eyJrIjoiMzQ2MWJkNjctMjE1Ny00ZTUxLWFkMWUtYmZhOTIyODNkZGYwIiwidCI6IjViZjI2ZTU2LTUyNDQtNDQ2Zi1iZWQ5LTU1OGM1ZDAwNTk1ZSJ9"
+                        style="border: none;"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+
+            </div>
+
+
+            <p class="text-muted small text-center mt-3">
+
+                Use the navigation and filters inside the dashboard
+                to explore the analysis.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PROJECT OVERVIEW
+    ====================================================== -->
+
+    <section class="project-section bg-white">
+
+        <div class="container px-3 px-md-5">
+
+
+            <div class="text-center mb-5">
+
+                <p class="text-uppercase
+                          text-muted
+                          small
+                          fw-bold
+                          mb-2">
+
+                    The Project
+
+                </p>
+
+                <h2 class="section-heading fw-bolder">
+
+                    Project Overview
+
+                </h2>
+
+            </div>
+
+
+            <div class="row g-4 justify-content-center">
+
+
+                <!-- Challenge -->
+
+                <div class="col-lg-7">
+
+                    <div class="card
+                                project-card
+                                shadow-sm">
+
+                        <div class="card-body p-4 p-md-5">
+
+                            <div class="project-card-icon
+                                        bg-primary
+                                        bg-gradient
+                                        text-white
+                                        mb-4">
+
+                                <i class="bi bi-question-circle"></i>
+
+                            </div>
+
+
+                            <h3 class="h5 fw-bold mb-3">
+
+                                The Challenge
+
+                            </h3>
+
+
+                            <p class="text-muted">
+
+                                The Premier League data was available in individual season datasets , each with row level match data , 
+                                however as the years progressed the amount of metrics increased , 
+                                with earlier seasons containing just the base metrics. 
+                                The first season however was missing and could not be included in the project.
+
+                            </p>
+
+
+                            <p class="text-muted mb-0">
+
+                                The goal was to combine all sources into one common analytical dataset 
+                                and use this to identify interesting stats and 
+                                trends across various seasons of Premier League football 
+                                and see how they compare.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Details -->
+
+                <div class="col-lg-5">
+
+                    <div class="card
+                                project-card
+                                shadow-sm">
+
+                        <div class="card-body p-4 p-md-5">
+
+                            <div class="project-card-icon
+                                        bg-primary
+                                        bg-gradient
+                                        text-white
+                                        mb-4">
+
+                                <i class="bi bi-info-circle"></i>
+
+                            </div>
+
+
+                            <h3 class="h5 fw-bold mb-4">
+
+                                Project Details
+
+                            </h3>
+
+
+                            <p class="mb-3">
+
+                                <strong>Period</strong><br>
+
+                                <span class="text-muted">
+                                    1993–2026 YTD
+                                </span>
+
+                            </p>
+
+
+                            <p class="mb-3">
+
+                                <strong>Dataset Size</strong><br>
+
+                                <span class="text-muted">
+                                    12,754 records
+                                </span>
+
+                            </p>
+
+
+                            <p class="mb-3">
+
+                                <strong>Data Sources</strong><br>
+
+                                <span class="text-muted">
+                                    34 official datasets
+                                </span>
+
+                            </p>
+
+
+                            <p class="mb-0">
+
+                                <strong>Tools</strong><br>
+
+                                <span class="text-muted">
+                                    SQL, Excel, Power Query,
+                                    DAX & Power BI
+                                </span>
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         KEY INSIGHTS
+    ====================================================== -->
+
+    <section class="project-section">
+
+        <div class="container px-3 px-md-5">
+
+
+            <div class="text-center mb-5">
+
+                <p class="text-uppercase
+                          text-muted
+                          small
+                          fw-bold
+                          mb-2">
+
+                    Results
+
+                </p>
+
+                <h2 class="section-heading fw-bolder">
+
+                    Key Insights
+
+                </h2>
+
+                <p class="text-muted section-description">
+
+                    Three of the headline findings from Premier
+                    League match data analysis.
+
+                </p>
+
+            </div>
+
+
+            <div class="row g-4 text-center">
+
+
+                <!-- Insight 1 -->
+
+                <div class="col-md-4">
+
+                    <div class="card
+                                project-card
+                                shadow-sm">
+
+                        <div class="card-body p-4">
+
+                            <div class="insight-number
+                                        text-primary
+                                        mb-2">
+
+                                +26.86%
+
+                            </div>
+
+                            <h3 class="h6 fw-bold">
+
+                                Away Win %
+
+                            </h3>
+
+                            <p class="text-muted small mb-0">
+
+                                Growth in Away Win % 
+                                between 90's era (1992-1999) and 20's era (2020 - Present).
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Insight 2 -->
+
+                <div class="col-md-4">
+
+                    <div class="card
+                                project-card
+                                shadow-sm">
+
+                        <div class="card-body p-4">
+
+                            <div class="insight-number
+                                        text-primary
+                                        mb-2">
+
+                                1,045
+
+                            </div>
+
+                            <h3 class="h6 fw-bold">
+
+                                Goals Scored
+
+                            </h3>
+
+                            <p class="text-muted small mb-0">
+
+                                Goals scored by all clubs in the 2025/2026 season
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Insight 3 -->
+
+                <div class="col-md-4">
+
+                    <div class="card
+                                project-card
+                                shadow-sm">
+
+                        <div class="card-body p-4">
+
+                            <div class="insight-number
+                                        text-primary
+                                        mb-2">
+
+                                +9.92%
+
+                            </div>
+
+                            <h3 class="h6 fw-bold">
+
+                                Goals Per Game .
+
+                            </h3>
+
+                            <p class="text-muted small mb-0">
+
+                                Growth in goals per game between 90's era (1992-1999) and 20's era (2020 - Present)
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Insight narrative -->
+
+            <div class="row justify-content-center mt-5">
+
+                <div class="col-lg-9">
+
+                    <div class="card
+                                project-card
+                                shadow-sm">
+
+                        <div class="card-body p-4 p-md-5">
+
+                            <h3 class="h5 fw-bold mb-3">
+
+                                What the Data Shows
+
+                            </h3>
+
+
+                            <p class="text-muted">
+
+                                Comparing different Premier League eras , 
+                                we can see an increase each era in the Goals scored per game , 
+                                winning margins , and Away win % showing us that the emphasis on home games 
+                                has decreased and overall there are more goals 
+                                being scored compared to the 90’s and 00’s
+
+                            </p>
+
+
+                            <p class="text-muted">
+
+                                We can also compare individual team performance across seasons to see trends 
+                                such as points needed to be champions and 
+                                what points total it now takes to survive relegation 
+                                compared to previous seasons.
+
+                            </p>
+
+
+                           
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         HOW I BUILT IT
+    ====================================================== -->
+
+    <section class="project-section bg-white">
+
+        <div class="container px-3 px-md-5">
+
+
+            <div class="text-center mb-5">
+
+                <p class="text-uppercase
+                          text-muted
+                          small
+                          fw-bold
+                          mb-2">
+
+                    Process
+
+                </p>
+
+                <h2 class="section-heading fw-bolder">
+
+                    How I Built It
+
+                </h2>
+
+                <p class="text-muted section-description">
+
+                    The project followed an end-to-end analytical
+                    workflow from raw official data through to
+                    interactive reporting.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="row g-4">
+
+
+                <!-- Step 1 -->
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="workflow-step">
+
+                        <div class="workflow-number
+                                    bg-primary
+                                    bg-gradient
+                                    text-white">
+
+                            01
+
+                        </div>
+
+                        <h3 class="h6 fw-bold">
+
+                            Data
+
+                        </h3>
+
+                        <p class="text-muted small">
+
+                            Collected yearly match data from 35 individual datasets.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Step 2 -->
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="workflow-step">
+
+                        <div class="workflow-number
+                                    bg-primary
+                                    bg-gradient
+                                    text-white">
+
+                            02
+
+                        </div>
+
+                        <h3 class="h6 fw-bold">
+
+                            Cleaning
+
+                        </h3>
+
+                        <p class="text-muted small">
+
+                            Standardised fields, extracted reporting
+                            year and week, flagged missing data and
+                            combined the datasets using Power Query.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Step 3 -->
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="workflow-step">
+
+                        <div class="workflow-number
+                                    bg-primary
+                                    bg-gradient
+                                    text-white">
+
+                            03
+
+                        </div>
+
+                        <h3 class="h6 fw-bold">
+
+                            Analysis
+
+                        </h3>
+
+                        <p class="text-muted small">
+
+                            Used SQL, Excel and DAX to investigate
+                            annual trends, growth, team performance and season performance
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Step 4 -->
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="workflow-step">
+
+                        <div class="workflow-number
+                                    bg-primary
+                                    bg-gradient
+                                    text-white">
+
+                            04
+
+                        </div>
+
+                        <h3 class="h6 fw-bold">
+
+                            Dashboard
+
+                        </h3>
+
+                        <p class="text-muted small">
+
+                            Built a multi-page Power BI report to
+                            communicate the findings through
+                            interactive visualisations.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Workflow line -->
+
+            <div class="text-center mt-5">
+
+                <span class="badge
+                             bg-light
+                             text-dark
+                             border
+                             px-3 py-2">
+
+                    Official Data
+                    &nbsp;→&nbsp;
+                    Power Query
+                    &nbsp;→&nbsp;
+                    Excel
+                    &nbsp;→&nbsp;
+                    SQL
+                    &nbsp;→&nbsp;
+                    Power BI
+                    &nbsp;→&nbsp;
+                    Insights
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+   <!-- =====================================================
+         Page Walkthrough
+    ====================================================== -->
+<section class="walkthrough" id="dashboard-walkthrough">
+
+<h2>Dashboard Walkthrough</h2>
+<p class="intro">A page-by-page look at the report, showing how users can explore Premier League results, compare teams and uncover trends across seasons and eras.</p>
+
+<article class="walkthrough-card">
+<div class="walkthrough-image"><img src="assets\Page_1_Premier_League_Overview.png" alt="Premier League Overview dashboard screenshot" onerror="this.outerHTML='<div class=&quot;placeholder&quot;>Add screenshot: images/league-overview.png</div>'"></div>
+<div class="walkthrough-copy"><span class="number">PAGE 01</span><h3>Premier League Overview</h3><p>Provides a league-wide summary for a selected season. Users can explore standings and headline performance metrics, then change the season to compare different campaigns.</p><span class="feature-label">How it works</span><ul><li>Season selection filters the page.</li><li>League standings and KPIs update together.</li><li>Team performance can be compared at a glance.</li></ul></div>
+</article>
+
+<article class="walkthrough-card">
+<div class="walkthrough-image"><img src="assets\Page_1_Premier_League_Overview.png" alt="Team season performance dashboard screenshot" onerror="this.outerHTML='<div class=&quot;placeholder&quot;>Add screenshot: images/team-season.png</div>'"></div>
+<div class="walkthrough-copy"><span class="number">PAGE 02</span><h3>Team Performance — Season</h3><p>Focuses on a single club during a selected campaign. Team and season slicers allow users to investigate points, wins, goals and match-by-match results.</p><span class="feature-label">How it works</span><ul><li>Select a club and a season.</li><li>Cards and charts recalculate for the selection.</li><li>Home and away performance can be compared.</li></ul></div>
+</article>
+
+<article class="walkthrough-card">
+<div class="walkthrough-image"><img src="assets\Page_1_Premier_League_Overview.png" alt="Historical team performance dashboard screenshot" onerror="this.outerHTML='<div class=&quot;placeholder&quot;>Add screenshot: images/team-historical.png</div>'"></div>
+<div class="walkthrough-copy"><span class="number">PAGE 03</span><h3>Team Performance — Historical</h3><p>Tracks how an individual club has performed across multiple Premier League seasons, helping users identify stronger and weaker periods.</p><span class="feature-label">How it works</span><ul><li>Select a team to filter its history.</li><li>Compare season-by-season performance trends.</li><li>Explore changes in points and league position.</li></ul></div>
+</article>
+
+<article class="walkthrough-card">
+<div class="walkthrough-image"><img src="assets\Page_1_Premier_League_Overview.png" alt="Head-to-head comparison dashboard screenshot" onerror="this.outerHTML='<div class=&quot;placeholder&quot;>Add screenshot: images/head-to-head.png</div>'"></div>
+<div class="walkthrough-copy"><span class="number">PAGE 04</span><h3>Head-to-Head Analysis</h3><p>Lets users independently select two clubs and compare their historical meetings, including wins, draws, goals and match records.</p><span class="feature-label">How it works</span><ul><li>Two independent selectors define the matchup.</li><li>Team names, logos and KPI headings update dynamically.</li><li>The match table displays the relevant fixtures.</li></ul></div>
+</article>
+
+<article class="walkthrough-card">
+<div class="walkthrough-image"><img src="assets\Page_1_Premier_League_Overview.png" alt="Attack versus defence dashboard screenshot" onerror="this.outerHTML='<div class=&quot;placeholder&quot;>Add screenshot: images/attack-defence.png</div>'"></div>
+<div class="walkthrough-copy"><span class="number">PAGE 05</span><h3>Attack vs Defence</h3><p>Compares clubs by attacking output and defensive performance. A scatter plot helps identify teams that score frequently while conceding relatively few goals.</p><span class="feature-label">How it works</span><ul><li>Compare goals scored and conceded per game.</li><li>Use season filters to change the comparison.</li><li>Explore team rankings and league averages.</li></ul></div>
+</article>
+
+<article class="walkthrough-card">
+<div class="walkthrough-image"><img src="assets\Page_1_Premier_League_Overview.png" alt="Home versus away dashboard screenshot" onerror="this.outerHTML='<div class=&quot;placeholder&quot;>Add screenshot: images/home-away.png</div>'"></div>
+<div class="walkthrough-copy"><span class="number">PAGE 06</span><h3>Home vs Away Performance</h3><p>Examines how playing venue affects club results by comparing home and away points, wins and points per game.</p><span class="feature-label">How it works</span><ul><li>Compare home and away results for each club.</li><li>Points per game accounts for matches played.</li><li>Season selection changes the period analysed.</li></ul></div>
+</article>
+
+<article class="walkthrough-card">
+<div class="walkthrough-image"><img src="assets\Page_1_Premier_League_Overview.png" alt="Premier League eras comparison dashboard screenshot" onerror="this.outerHTML='<div class=&quot;placeholder&quot;>Add screenshot: images/eras-comparison.png</div>'"></div>
+<div class="walkthrough-copy"><span class="number">PAGE 07</span><h3>Premier League Eras</h3><p>Groups seasons into the 90s, 00s, 10s and 20s to explore how the league has evolved over time.</p><span class="feature-label">How it works</span><ul><li>Compare goals per match across eras.</li><li>Explore home and away win-rate changes.</li><li>Examine average winning margins and seasonal trends.</li></ul></div>
+</article>
+</section>
+
+    <!-- =====================================================
+         TECHNICAL CHALLENGE
+    ====================================================== -->
+
+    
+<section class="technical-challenge">
+
+    <div class="container">
+
+        <p class="text-uppercase text-muted small fw-bold">
+            Problem Solving
+        </p>
+
+        <h2 class="fw-bold">
+            Technical Challenge: Home &amp; Away Team Analysis
+        </h2>
+
+        <div class="challenge-grid">
+
+            <!-- The Challenge -->
+            <div class="challenge-card">
+
+                <div class="challenge-icon problem">
+                    !
+                </div>
+
+                <h3>The Challenge</h3>
+
+                <p>
+                    Each match contains both a home team and an
+                    away team. Team-level comparisons and
+                    head-to-head analysis therefore require
+                    logic that accounts for both sides of a
+                    fixture without excluding away matches
+                    or double-counting results.
+                </p>
+
+            </div>
+
+            <!-- The Approach -->
+            <div class="challenge-card">
+
+                <div class="challenge-icon solution">
+                    &#10003;
+                </div>
+
+                <h3>The Approach</h3>
+
+                <p>
+                    Used the match table alongside team and
+                    season dimensions, with DAX calculations
+                    for home and away results, points per game,
+                    and independent team selections for
+                    head-to-head comparisons.
+                </p>
+
+            </div>
+
+        </div>
+
+        <p class="challenge-note">
+            Built using SQL Server, Power BI and DAX.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+    <!-- =====================================================
+         DATA QUALITY & LIMITATIONS
+    ====================================================== -->
+
+    <section class="project-section bg-white">
+
+        <div class="container px-3 px-md-5">
+
+
+            <div class="text-center mb-5">
+
+                <p class="text-uppercase
+                          text-muted
+                          small
+                          fw-bold
+                          mb-2">
+
+                    Methodology
+
+                </p>
+
+                <h2 class="section-heading fw-bolder">
+
+                    Data Quality & Limitations
+
+                </h2>
+
+                <p class="text-muted section-description">
+
+                    Historical comparisons need consistent definitions and careful treatment of incomplete or unavailable data
+
+                </p>
+
+            </div>
+
+
+
+            <div class="row g-4">
+
+
+                <!-- Rail -->
+
+                <div class="col-md-6">
+
+                    <div class="card
+                                project-card
+                                shadow-sm">
+
+                        <div class="card-body p-4">
+
+                            <h3 class="h6 fw-bold">
+
+                                <i class="bi bi-exclamation-circle
+                                           text-primary me-2"></i>
+
+                                Missing Early Season
+
+                            </h3>
+
+                            <p class="text-muted small mb-0">
+
+                                Missing the first Premier League season so my data only starts at 93/94 season
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- 2026 -->
+
+                <div class="col-md-6">
+
+                    <div class="card
+                                project-card
+                                shadow-sm">
+
+                        <div class="card-body p-4">
+
+                            <h3 class="h6 fw-bold">
+
+                                <i class="bi bi-calendar3
+                                           text-primary me-2"></i>
+
+                                2026 Partial Year
+
+                            </h3>
+
+                            <p class="text-muted small mb-0">
+
+                                2026/2027 is incomplete as this season is currently in progress so all starts at season to date.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Missing -->
+
+                <div class="col-md-6">
+
+                    <div class="card
+                                project-card
+                                shadow-sm">
+
+                        <div class="card-body p-4">
+
+                            <h3 class="h6 fw-bold">
+
+                                <i class="bi bi-dash-circle
+                                           text-primary me-2"></i>
+
+                                Missing Values
+
+                            </h3>
+
+                            <p class="text-muted small mb-0">
+
+                                The early year data sets do not contain all match information such as cards, corners and attendances so cannot use these as comparison points.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Journeys -->
+
+                <div class="col-md-6">
+
+                    <div class="card
+                                project-card
+                                shadow-sm">
+
+                        <div class="card-body p-4">
+
+                            <h3 class="h6 fw-bold">
+
+                                <i class="bi bi-people
+                                           text-primary me-2"></i>
+
+                                Fair Era Comparisons
+
+                            </h3>
+
+                            <p class="text-muted small mb-0">
+
+                                Used per-match or per-game rates where appropriate, since era lengths and league match counts can differ..
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SKILLS USED
+    ====================================================== -->
+
+    <section class="project-section">
+
+        <div class="container px-3 px-md-5">
+
+
+            <div class="text-center mb-5">
+
+                <p class="text-uppercase
+                          text-muted
+                          small
+                          fw-bold
+                          mb-2">
+
+                    Technical Skills
+
+                </p>
+
+                <h2 class="section-heading fw-bolder">
+
+                    Tools & Techniques
+
+                </h2>
+
+            </div>
+
+
+            <div class="d-flex
+                        justify-content-center
+                        gap-2
+                        flex-wrap">
+
+                <span class="badge bg-white
+                             text-dark
+                             border
+                             px-3 py-2">
+                    SQL
+                </span>
+
+                <span class="badge bg-white
+                             text-dark
+                             border
+                             px-3 py-2">
+                    Excel
+                </span>
+
+                <span class="badge bg-white
+                             text-dark
+                             border
+                             px-3 py-2">
+                    Power Query
+                </span>
+
+                <span class="badge bg-white
+                             text-dark
+                             border
+                             px-3 py-2">
+                    DAX
+                </span>
+
+                <span class="badge bg-white
+                             text-dark
+                             border
+                             px-3 py-2">
+                    Power BI
+                </span>
+
+                <span class="badge bg-white
+                             text-dark
+                             border
+                             px-3 py-2">
+                    Data Cleaning
+                </span>
+
+                <span class="badge bg-white
+                             text-dark
+                             border
+                             px-3 py-2">
+                    Data Modelling
+                </span>
+
+                <span class="badge bg-white
+                             text-dark
+                             border
+                             px-3 py-2">
+                    Data Visualisation
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         GITHUB CTA
+    ====================================================== -->
+
+    <section class="py-5
+                    bg-gradient-primary-to-secondary
+                    text-white">
+
+        <div class="container
+                    px-3 px-md-5
+                    my-3 my-md-4">
+
+            <div class="text-center">
+
+                <h2 class="h2 fw-bolder mb-3">
+
+                    Explore the Technical Work
+
+                </h2>
+
+
+                <p class="mb-4 mx-auto"
+                   style="max-width: 650px;">
+
+                    View the project files, SQL analysis,
+                    methodology and supporting documentation
+                    in the GitHub repository.
+
+                </p>
+
+
+                <div class="d-flex
+                            justify-content-center
+                            gap-3
+                            flex-wrap">
+
+                    <a class="btn
+                              btn-outline-light
+                              px-4 py-2
+                              fw-bolder"
+                       href="https://github.com/ArranF1995/Irish-transport-and-Commuting"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        <i class="bi bi-github me-2"></i>
+
+                        View GitHub
+
+                    </a>
+
+
+                    <a class="btn
+                              btn-light
+                              px-4 py-2
+                              fw-bolder"
+                       href="projects.html">
+
+                        <i class="bi bi-arrow-left me-2"></i>
+
+                        Back to Projects
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer class="bg-white py-4 mt-auto">
+
+    <div class="container px-3 px-md-5">
+
+        <div class="row
+                    align-items-center
+                    justify-content-between
+                    flex-column flex-sm-row">
+
+            <div class="col-auto">
+
+                <div class="small m-0 text-muted">
+
+                    &copy; Arran Farrell
+
+                </div>
+
+            </div>
+
+
+            <div class="col-auto">
+
+                <a class="small text-decoration-none me-3"
+                   href="projects.html">
+
+                    Projects
+
+                </a>
+
+                <a class="small text-decoration-none"
+                   href="contact.html">
+
+                    Contact
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- Bootstrap core JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- Your existing scripts -->
+<script src="js/scripts.js"></script>
+
+
+</body>
+
+</html>
